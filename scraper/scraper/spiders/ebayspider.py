@@ -22,6 +22,7 @@ class EbayspiderSpider(scrapy.Spider):
                             'Reasonable_shipping_cost',
                             'Shipping_speed',
                             'Communication',
+                            'Item_score',
                             ]
                        }
 
