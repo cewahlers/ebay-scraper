@@ -22,3 +22,4 @@ class ScraperItem(scrapy.Item):
     Reasonable_shipping_cost = scrapy.Field()
     Shipping_speed = scrapy.Field()
     Communication = scrapy.Field()
+    Item_score = scrapy.Field()
