@@ -70,5 +70,14 @@ class EbayScraperPipeline:
         adapter['Reasonable_shipping_cost'] = value[1]
         adapter['Shipping_speed'] = value[2]
         adapter['Communication'] = value[3]
+
+        ## Give product a score based on price, shipping cost, and ratings
+        value = 50 - (adapter.get('prod_price') + adapter.get('shipping_price'))
+        value += (adapter.get('Accurate_description') / 5) * 12.5
+        value += (adapter.get('Reasonable_shipping_cost') / 5) * 12.5
+        value += (adapter.get('Shipping_speed') / 5) * 15
+        value += (adapter.get('Communication') / 5) * 10
+    
+        adapter['Item_score'] = int(value)
         
         return item
